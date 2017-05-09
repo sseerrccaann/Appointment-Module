@@ -149,18 +149,17 @@ require_once ("LogicLayer/SubBranchManager.php");
         <form action="AppointmentInfoMng.php" method="POST">
             <input class="button" style="vertical-align:middle" onclick="progressChange()" type="button" id="submit4" value="Submit" />
         </form>
-        <input type="text" id="asd"/>
         <div id="divCallResult">
 
         </div>
     </div>
     <div id="mainContainerStep5">
-        <button type="submit" onclick="progressChange()">Submit</button>
+        <p style="margin: auto;position: relative;margin-left: 25%;color: white;text-shadow: 3px 2px red;font-weight:bold;font-size: 20px;visibility: hidden" id="resultMsg">You Have Succesfully Taken An Appointment</p>
     </div>
 
 </div>
 
-<script type="text/javascript" src="js/functions2.js"></script>
+<script type="text/javascript" src="js/functions.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>
     // JQuery
@@ -283,14 +282,14 @@ require_once ("LogicLayer/SubBranchManager.php");
             }
 
             var retType = "xml"; // get reply format
-            $.ajax({ // start an ajax POST
+           /* $.ajax({ // start an ajax POST
                 type	: "post",
                 url		: "AppointmentInfoMng.php",
                 data	:  {
                     "date": date,
                     "time" : examinationTime,
-                    "patientName" : "Selman",
-                    "patientSSN" : "2012510",
+                    "patientName" : "Mesut",
+                    "patientSSN" : "12344378912",
                     "doctorID" : 1,
                     "doctorName": doctorName,
                     "branchName" : branchName,
@@ -310,11 +309,8 @@ require_once ("LogicLayer/SubBranchManager.php");
                     console.log(err);
                     alert(" There is an error! Please try again. " + err);
                 }
-            });
-
-        });
-        $(".timeButton").click(function(e){
-
+            });*/
+            $('#submit4').hide();
         });
 
     });

@@ -1,13 +1,11 @@
-/**
- * Created by Sercan on 9.4.2017.
- */
-
+var stepCount = 1;
 window.onload=dateAssign();
 $body = $("body");
 
 function dateAssign() {
     var date = new Date();
     var dayOfToday = date.getDate();
+    dayOfToday += 1;
     var monthOfToday = date.getMonth();
     monthOfToday += 1;
     var yearOfToday = date.getFullYear();
@@ -25,17 +23,51 @@ function dateAssign() {
         strDate = strDate + "-" + dayOfToday;
     }
     var str = date.toString("YYYY-MM-DD");
+    document.getElementById('datepicker').setAttribute('min',strDate);
     document.getElementById('datepicker').value = strDate;
-    document.getElementById('dene').value = strDate;
+
 }
 function progressChange(){
-    var NAME = document.getElementById("progress-bar progress-bar-striped");
-    var currentClass = NAME.className;
-    if (currentClass == "progress-bar progress-bar-striped") { // Check the current class name
-        NAME.className = "progress-bar progress-bar-warning";   // Set other class name
-    } else {
-        NAME.className = "progress-bar progress-bar-striped";  // Otherwise, use `second_name`
+    if (stepCount==1 ){
+        document.getElementById("firstStep").className = "progress-bar progress-bar-success";
+        document.getElementById("secondStep").className = "progress-bar progress-bar-striped active";
+        document.getElementById("mainContainer").style.visibility="hidden";
+        document.getElementById("mainContainerStep2").style.visibility="visible";
+        stepCount += 1;
     }
+    else if(stepCount==2){
+        document.getElementById("secondStep").className = "progress-bar progress-bar-success";
+        document.getElementById("thirdStep").className = "progress-bar progress-bar-striped active";
+        document.getElementById("mainContainerStep2").style.visibility="hidden";
+        document.getElementById("mainContainerStep3").style.visibility="visible";
+        stepCount += 1;
+    }
+    else if(stepCount==3){
+        var time = document.getElementById("dene").value;
+        if(time!=""){
+            document.getElementById("thirdStep").className = "progress-bar progress-bar-success";
+            document.getElementById("fourthStep").className = "progress-bar progress-bar-striped active";
+            document.getElementById("mainContainerStep3").style.visibility="hidden";
+            document.getElementById("mainContainerStep4").style.visibility="visible";
+            stepCount += 1;
+        }
+    }
+    else if(stepCount==4){
+        document.getElementById("fourthStep").className = "progress-bar progress-bar-success";
+        document.getElementById("mainContainerStep4").style.visibility="hidden";
+        document.getElementById("mainContainerStep5").style.visibility="visible";
+        document.getElementById("resultMsg").style.visibility="visible";
+        stepCount += 1;
+    }
+
+
+}
+
+function deneme(value) {
+    document.getElementById("dene").value = value;
+    document.getElementById("dene").style.visibility = "hidden";
+}
+function takeAppointment(){
 
 }
 

@@ -23,6 +23,7 @@ function dateAssign() {
     }
     var str = date.toString("YYYY-MM-DD");
     document.getElementById('datepicker').value = strDate;
+    document.getElementById('datepicker').setAttribute('min',str);
 }
 function progressChange(){
     if (stepCount==1 ){
