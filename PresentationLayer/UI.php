@@ -282,7 +282,7 @@ require_once ("LogicLayer/SubBranchManager.php");
             }
 
             var retType = "xml"; // get reply format
-           /* $.ajax({ // start an ajax POST
+            $.ajax({ // start an ajax POST
                 type	: "post",
                 url		: "AppointmentInfoMng.php",
                 data	:  {
@@ -309,7 +309,7 @@ require_once ("LogicLayer/SubBranchManager.php");
                     console.log(err);
                     alert(" There is an error! Please try again. " + err);
                 }
-            });*/
+            });
             $('#submit4').hide();
         });
 

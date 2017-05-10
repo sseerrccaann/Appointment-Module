@@ -20,5 +20,20 @@ class Appointment_InfoManager
         }
         return $appointmentinfo;
     }
+    public static function getAppointmentInfo($appID){
+        $db=new DB();
+        $result = $db->getDataTable("select ID,date,time from appointmentinfo where ID='$appID'");
+        $appointmentinfo = array();
+        while($row=$result->fetch_assoc()){
+            $appObj = new Appointment_Info($row["date"], $row["ID"], $row["time"]);
+            array_push($appointmentinfo, $appObj);
+        }
+        return $appointmentinfo;
+    }
+    public static function updateAppointmentInfoByAdmin($appInfoId,$date,$time){
+        $db=new DB();
+        $success = $db->executeQuery("UPDATE appointmentinfo SET date='$date',time='$time' WHERE ID='$appInfoId'");
+        return $success;
+    }
 }
 ?>
