@@ -21,7 +21,7 @@
         $appointmentinfoList = Appointment_InfoManager::getID($date,$time);
         $appointmentInfoID = $appointmentinfoList[0]->getID();
         $subBranchList = SubBranchManager::getSubBranchID($subBranchName);
-        $subBranchID = $subBranchList[0]->getID();
+        $subBranchID = $subBranchList[2]->getID();
         $result = AppointmentManager::insertAppointment($patientName,$patientSSN,$doctorID,$doctorName,$subBranchID,$appointmentInfoID);
         if(!$result) {
             $errorMeesage = "Yeni kullanıcı kaydı başarısız!";
